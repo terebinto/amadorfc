@@ -9,7 +9,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
  * @since  06/04/2016
  */
 @JsonObject
-public class BannerRequest {
+public class CampeonatoRequest {
 
 
 }

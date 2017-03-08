@@ -12,16 +12,16 @@ import java.util.List;
  * @since 06/04/2016
  */
 @JsonObject
-public class BannerResponse {
+public class CampeonatoResponse {
 
-    @JsonField(name = "banners")
-    public List<Banner> banners;
+    @JsonField(name = "campeonatos")
+    public List<Campeonato> campeonatos;
 
-    public List<Banner> getBanners() {
-        return banners;
+    public List<Campeonato> getCampeonatos() {
+        return campeonatos;
     }
 
-    public void setBanners(List<Banner> banners) {
-        this.banners = banners;
+    public void setCampeonatos(List<Campeonato> campeonatos) {
+        this.campeonatos = campeonatos;
     }
 }

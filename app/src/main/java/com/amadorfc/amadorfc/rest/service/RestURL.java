@@ -7,6 +7,7 @@ public enum RestURL {
 
     GET_URL(""),
     LISTAR_USUARIOS("usuarios.php"),
+    LISTAR_CAMPEONATOS("carregarLigas.php"),
     LISTAR_BANNERS("banners.php");
 
     private static final String uri = "http://www.amigosdabolaonline.com.br/servicos/%s";

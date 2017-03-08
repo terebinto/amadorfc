@@ -9,11 +9,11 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class Campeonato {
 
-    @JsonField(name = "idBanner")
-    public int id;
+    @JsonField(name = "idLiga")
+    public int idLiga;
 
-    @JsonField(name = "nomeBanner")
-    public String nomeBanner;
+    @JsonField(name = "nomeLiga")
+    public String nomeLiga;
 
     @JsonField(name = "descricao")
     public String descricao;
@@ -21,20 +21,20 @@ public class Campeonato {
     @JsonField(name = "imagem")
     public String imagem;
 
-    public int getId() {
-        return id;
+    public int getIdLiga() {
+        return idLiga;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdLiga(int idLiga) {
+        this.idLiga = idLiga;
     }
 
-    public String getNomeBanner() {
-        return nomeBanner;
+    public String getNomeLiga() {
+        return nomeLiga;
     }
 
-    public void setNomeBanner(String nomeBanner) {
-        this.nomeBanner = nomeBanner;
+    public void setNomeLiga(String nomeLiga) {
+        this.nomeLiga = nomeLiga;
     }
 
     public String getDescricao() {
@@ -51,10 +51,5 @@ public class Campeonato {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    @Override
-    public String toString() {
-        return nomeBanner;
     }
 }
