@@ -7,7 +7,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
  * Created by alexandre on 01/03/17.
  */
 @JsonObject
-public class Banner {
+public class Campeonato {
 
     @JsonField(name = "idBanner")
     public int id;
