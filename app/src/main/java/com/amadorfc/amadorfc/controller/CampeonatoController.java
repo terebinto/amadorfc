@@ -6,7 +6,11 @@ import android.util.Log;
 import com.amadorfc.amadorfc.rest.banner.Banner;
 import com.amadorfc.amadorfc.rest.banner.BannerRequest;
 import com.amadorfc.amadorfc.rest.banner.BannerResponse;
+import com.amadorfc.amadorfc.rest.campeonato.Campeonato;
+import com.amadorfc.amadorfc.rest.campeonato.CampeonatoRequest;
+import com.amadorfc.amadorfc.rest.campeonato.CampeonatoResponse;
 import com.amadorfc.amadorfc.rest.service.banner.BannerService;
+import com.amadorfc.amadorfc.rest.service.campeonato.CampeonatoService;
 
 import java.util.List;
 
@@ -18,15 +22,15 @@ import java.util.List;
  */
 public class CampeonatoController {
 
-    public static List<Banner> loadBanners(final Context context) {
+    public static List<Campeonato> loadCampeonatos(final Context context) {
         try {
-            Log.i("Carregando banners", "INICIO");
-            BannerRequest request = new BannerRequest();
+            Log.i("Carregando campeonatos", "INICIO");
+            CampeonatoRequest request = new CampeonatoRequest();
 
-            BannerResponse response = new BannerService().execute(request);
-            return response.getBanners();
+            CampeonatoResponse response = new CampeonatoService().execute(request);
+            return response.getCampeonatos();
         } finally {
-            Log.i("Banners carregados", "FIM");
+            Log.i("Campeonatos carregados", "FIM");
         }
     }
 }
