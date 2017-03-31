@@ -1,5 +1,6 @@
 package com.amadorfc.amadorfc.rest.equipeClassificacao;
 
+import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 
 
@@ -11,13 +12,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class EquipeClassificacaoRequest {
 
-    private int seasson;
+    @JsonField
+    public int seasson;
 
-    public int getSeasson() {
-        return seasson;
-    }
-
-    public void setSeasson(int seasson) {
-        this.seasson = seasson;
-    }
 }

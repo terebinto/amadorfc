@@ -18,8 +18,11 @@ public class EquipeClassificacaoService extends RestAbstractService<EquipeClassi
 
     @Override
     public RestURL getURL() {
+
         return RestURL.CARREGAR_CLASSIFICACAO;
     }
+
+
 
     @Override
     public Class<EquipeClassificacaoResponse> getResponseClass() {

@@ -26,9 +26,10 @@ public class EquipeClassificacaoController {
         try {
             Log.i("Carregando clas", "INICIO");
             EquipeClassificacaoRequest request = new EquipeClassificacaoRequest();
-            request.setSeasson(7);
+            request.seasson = 8;
 
             EquipeClassificacaoResponse response = new EquipeClassificacaoService().execute(request);
+
             return response.getEquipeClassificacao();
         } finally {
             Log.i("CLASSIFIACAO carregados", "FIM");
