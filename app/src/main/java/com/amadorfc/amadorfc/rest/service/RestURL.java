@@ -8,6 +8,9 @@ public enum RestURL {
     GET_URL(""),
     LISTAR_USUARIOS("usuarios.php"),
     LISTAR_CAMPEONATOS("carregarLigas.php"),
+    CARREGAR_EQUIPE_TID("equipe.php"),
+    CARREGAR_CLASSIFICACAO("classificacao.php"),
+    CARREGAR_PROXIMOS_JOGOS("proximosJogos.php"),
     LISTAR_BANNERS("banners.php");
 
     private static final String uri = "http://www.amigosdabolaonline.com.br/servicos/%s";

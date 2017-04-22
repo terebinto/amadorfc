@@ -10,9 +10,12 @@ import android.util.Log;
 
 import com.amadorfc.amadorfc.app.AmadorfcApplication;
 import com.amadorfc.amadorfc.rest.banner.Banner;
+import com.amadorfc.amadorfc.rest.equipeClassificacao.EquipeClassificacao;
 import com.amadorfc.amadorfc.task.AtivaCadastroTask;
 import com.amadorfc.amadorfc.task.BannerTask;
+import com.amadorfc.amadorfc.task.ClassificacaoTask;
 import com.amadorfc.amadorfc.task.listener.BannerListener;
+import com.amadorfc.amadorfc.task.listener.ClassificacaoListener;
 import com.fasterxml.jackson.core.JsonParser;
 
 import org.json.JSONException;
@@ -20,7 +23,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class SplashScreen extends Activity  implements BannerListener {
+public class SplashScreen extends Activity  implements ClassificacaoListener {
 
     String now_playing, earned;
 
@@ -29,7 +32,7 @@ public class SplashScreen extends Activity  implements BannerListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        BannerTask mTask = new BannerTask((AmadorfcApplication) this.getApplicationContext(), SplashScreen.this, SplashScreen.this);
+        ClassificacaoTask mTask = new ClassificacaoTask((AmadorfcApplication) this.getApplicationContext(), SplashScreen.this, SplashScreen.this);
         mTask.execute();
 
 
@@ -42,13 +45,13 @@ public class SplashScreen extends Activity  implements BannerListener {
     }
 
     @Override
-    public void loadBanners(List<Banner> banners) {
+    public void loadClassificacao(List<EquipeClassificacao> classificacao) {
 
-        for (Banner ban : banners){
+        /*for (Banner ban : banners){
 
             now_playing = ban.getDescricao();
             earned = ban.getNomeBanner();
-        }
+        }*/
 
         Log.e("JSON", "> " + now_playing + earned);
 
