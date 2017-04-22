@@ -1,6 +1,7 @@
 package com.amadorfc.amadorfc;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -49,8 +50,11 @@ public class MainActivity extends Activity implements CampeonatoListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String Slecteditem = idLiga[+position].toString();
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getBaseContext(), PrincipalActivity.class));
+
+                //String Slecteditem = idLiga[+position].toString();
+                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
             }
         });

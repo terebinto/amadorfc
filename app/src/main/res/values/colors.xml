@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
+
+
+
+    <color name="verde200">#a5d6a7</color>
+    <color name="verde400"> #66bb6a</color>
+    <color name="verde500">#4caf50</color>
+    <color name="verde800">#2e7d32</color>
+    <color name="verde900">#1b5e20</color>
+
+
 </resources>
