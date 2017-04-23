@@ -16,14 +16,14 @@ import com.amadorfc.amadorfc.model.Jogos;
  * Created by lucas.viveiros on 17/03/2017.
  */
 
-public class ListAdapter extends ArrayAdapter<Jogos> {
+public class ListJogosAdapter extends ArrayAdapter<Jogos> {
 
 
     Context context;
     int layoutResourceId;
     Jogos data[] = null;
 
-    public ListAdapter(Context context, int layoutResourceId, Jogos[] data) {
+    public ListJogosAdapter(Context context, int layoutResourceId, Jogos[] data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.amadorfc.amadorfc.adapter.ListAdapter;
+import com.amadorfc.amadorfc.adapter.ListJogosAdapter;
 import com.amadorfc.amadorfc.model.Jogos;
 
 
@@ -40,7 +40,7 @@ public class FragmentJogos extends Fragment {
                         new Jogos("CORINTHIANS", "PALMEIRA", "ESTADIO 19:00"),
                 };
 
-        ListAdapter adapter = new ListAdapter(getActivity(),
+        ListJogosAdapter adapter = new ListJogosAdapter(getActivity(),
                 R.layout.row_item_rodada, weather_data);
 
 
