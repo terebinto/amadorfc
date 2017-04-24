@@ -10,24 +10,28 @@ import android.widget.TextView;
 
 import com.amadorfc.amadorfc.R;
 import com.amadorfc.amadorfc.model.Jogos;
+import com.amadorfc.amadorfc.rest.proximosJogos.ProximosJogos;
+
+import java.util.List;
 
 
 /**
  * Created by lucas.viveiros on 17/03/2017.
  */
 
-public class ListJogosAdapter extends ArrayAdapter<Jogos> {
+public class ListJogosAdapter extends ArrayAdapter<ProximosJogos> {
 
 
     Context context;
     int layoutResourceId;
-    Jogos data[] = null;
+    List<ProximosJogos> proximosJogos;
+    //Jogos data[] = null;
 
-    public ListJogosAdapter(Context context, int layoutResourceId, Jogos[] data) {
-        super(context, layoutResourceId, data);
+    public ListJogosAdapter(Context context, int layoutResourceId, List<ProximosJogos> proximosJogos) {
+        super(context, layoutResourceId, proximosJogos);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
-        this.data = data;
+        this.proximosJogos = proximosJogos;
     }
 
     @Override
@@ -49,10 +53,10 @@ public class ListJogosAdapter extends ArrayAdapter<Jogos> {
             holder = (ListHolder) row.getTag();
         }
 
-        Jogos jogos = data[position];
-        holder.mandante.setText(jogos.getMandante());
-        holder.visitante.setText(jogos.getVisitante());
-        holder.estadio.setText(jogos.getEstadio());
+        ProximosJogos jogos = proximosJogos.get(position);
+        holder.mandante.setText(jogos.getNomeTime1());
+        holder.visitante.setText(jogos.getNomeTime2());
+        //holder.estadio.setText(jogos.get);
 
         return row;
     }

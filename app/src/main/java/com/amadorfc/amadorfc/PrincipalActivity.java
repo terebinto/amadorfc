@@ -24,11 +24,16 @@ public class PrincipalActivity extends AppCompatActivity {
         bottomNavigation =  (BottomNavigationView)findViewById(R.id.bottom_navigation);
         bottomNavigation.getMenu().clear();
         bottomNavigation.inflateMenu(R.menu.menu_main);
+        fragment = new FragmentJogos();
         fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_container, fragment).commit();
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                fragment = null;
+                fragmentManager = getSupportFragmentManager();
                 int id = item.getItemId();
                 switch (id){
                     case R.id.action_jogos:
@@ -40,7 +45,6 @@ public class PrincipalActivity extends AppCompatActivity {
                     case R.id.action_music:
                         fragment = new FragmentClassificacao();
                         break;
-
                 }
                 final FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.main_container, fragment).commit();

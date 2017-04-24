@@ -30,8 +30,7 @@ public class ProximosJogosTask extends AsyncTask<String, Void, List<ProximosJogo
     private ProximosJogosListener listener;
     private String errMessage;
 
-    public ProximosJogosTask(
-            final AmadorfcApplication application, final Activity activity, final ProximosJogosListener listener) {
+    public ProximosJogosTask(final AmadorfcApplication application, final Activity activity, final ProximosJogosListener listener) {
         this.application = application;
         this.activity = activity;
         this.listener = listener;

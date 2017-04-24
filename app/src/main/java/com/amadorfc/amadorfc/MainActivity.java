@@ -45,9 +45,6 @@ public class MainActivity extends Activity implements CampeonatoListener {
                                     int position, long id) {
 
                 startActivity(new Intent(getBaseContext(), PrincipalActivity.class));
-
-                //String Slecteditem = idLiga[+position].toString();
-                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
             }
         });
     }
