@@ -26,7 +26,6 @@ public class FragmentJogos extends Fragment implements ProximosJogosListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         v = inflater.inflate(R.layout.fragment_fragment_jogos, container, false);
 
         return v;
