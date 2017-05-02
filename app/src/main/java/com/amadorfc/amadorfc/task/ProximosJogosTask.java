@@ -2,6 +2,7 @@ package com.amadorfc.amadorfc.task;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
 import com.amadorfc.amadorfc.app.AmadorfcApplication;
@@ -13,6 +14,8 @@ import com.amadorfc.amadorfc.rest.proximosJogos.ProximosJogos;
 import com.amadorfc.amadorfc.task.listener.CampeonatoListener;
 import com.amadorfc.amadorfc.task.listener.ProximosJogosListener;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 
@@ -41,6 +44,7 @@ public class ProximosJogosTask extends AsyncTask<String, Void, List<ProximosJogo
     @Override
     protected List<ProximosJogos> doInBackground(String... params) {
         try {
+
             List<ProximosJogos> retornar = ProximosJogosController.loadProximosJogos(application);
             return retornar;
         } catch (RestException e) {

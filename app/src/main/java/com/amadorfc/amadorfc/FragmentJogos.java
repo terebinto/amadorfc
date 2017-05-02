@@ -34,6 +34,7 @@ public class FragmentJogos extends Fragment implements ProximosJogosListener{
     @Override
     public void onResume() {
         super.onResume();
+
         new ProximosJogosTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentJogos.this).execute();
     }
 

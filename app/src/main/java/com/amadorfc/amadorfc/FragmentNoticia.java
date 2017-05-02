@@ -11,7 +11,7 @@ import com.amadorfc.amadorfc.adapter.ListNoticiaAdapter;
 import com.amadorfc.amadorfc.model.Noticias;
 
 
-public class FragmentNoticia extends Fragment {
+public class FragmentNoticia extends Fragment{
 
     private ListView listView1;
 

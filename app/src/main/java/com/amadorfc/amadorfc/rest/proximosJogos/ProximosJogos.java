@@ -36,6 +36,17 @@ public class ProximosJogos {
     @JsonField(name = "escudoEquipe2")
     public String escudoEquipe2;
 
+    @JsonField(name = "localPartida")
+    public String localPartida;
+
+    public String getLocalPartida() {
+        return localPartida;
+    }
+
+    public void setLocalPartida(String localPartida) {
+        this.localPartida = localPartida;
+    }
+
     public int getIdPartida() {
         return idPartida;
     }

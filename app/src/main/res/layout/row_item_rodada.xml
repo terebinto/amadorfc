@@ -30,23 +30,26 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
+            <TextView
+                android:id="@+id/name_time_mandante"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textAlignment="textEnd"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="@dimen/margin_15"
+                android:text="PALMEIRAS"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/tertiary_text_light"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
 
-                <TextView
-                    android:id="@+id/name_time_mandante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:text="PALMEIRAS"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@android:color/tertiary_text_light"
-                    android:textSize="12sp"
-                    android:textStyle="bold"/>
+
 
                 <ImageView
                     android:id="@+id/image_time_mandante"
@@ -58,7 +61,6 @@
                     android:background="@android:color/black"
                     android:src="@android:drawable/ic_dialog_info" />
 
-            </LinearLayout>
 
 
             <TextView
@@ -70,13 +72,11 @@
                 android:layout_marginRight="@dimen/margin_15"
                 android:text="X"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:maxLines="4"
+                android:singleLine="false"/>
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
 
 
                 <ImageView
@@ -89,19 +89,21 @@
                     android:background="@android:color/black"
                     android:src="@android:drawable/ic_dialog_info" />
 
-                <TextView
-                    android:id="@+id/name_time_visitante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/margin_15"
-                    android:text="CORINTHIANS"
-                    android:textColor="@android:color/tertiary_text_light"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/name_time_visitante"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textAlignment="textStart"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:text="CORINTHIANS"
+                android:textColor="@android:color/tertiary_text_light"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
