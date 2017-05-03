@@ -6,24 +6,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amadorfc.amadorfc.R;
 import com.amadorfc.amadorfc.model.Noticias;
+import com.amadorfc.amadorfc.rest.noticia.Noticia;
+import com.squareup.picasso.Picasso;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 
 /**
  * Created by lucas.viveiros on 17/03/2017.
  */
 
-public class ListNoticiaAdapter extends ArrayAdapter<Noticias> {
+public class ListNoticiaAdapter extends ArrayAdapter<Noticia> {
 
 
     Context context;
     int layoutResourceId;
-    Noticias data[] = null;
+    List<Noticia> data = null;
 
-    public ListNoticiaAdapter(Context context, int layoutResourceId, Noticias[] data) {
+    public ListNoticiaAdapter(Context context, int layoutResourceId, List<Noticia> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -40,23 +47,30 @@ public class ListNoticiaAdapter extends ArrayAdapter<Noticias> {
             row = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new ListHolder();
-            holder.noticia = (TextView) row.findViewById(R.id.txt_header_noticia);
+            holder.titulo = (TextView) row.findViewById(R.id.txt_header_noticia);
             holder.hora = (TextView) row.findViewById(R.id.txt_tempo_noticia);
+            holder.capa = (ImageView) row.findViewById(R.id.image_noticia);
 
             row.setTag(holder);
         } else {
             holder = (ListHolder) row.getTag();
         }
 
-        Noticias jogos = data[position];
-        holder.noticia.setText(jogos.getNoticia());
-        holder.hora.setText(jogos.getHora());
+        Noticia noticia = data.get(position);
+        holder.titulo.setText(noticia.getTitulo());
+        holder.hora.setText(noticia.getDataNoticia());
+        if(StringUtils.isNotEmpty(noticia.getImages())){
+            Picasso.with(context).load(noticia.getImages()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400,120).centerCrop().into(holder.capa);
+        }else{
+            holder.capa.setImageResource(R.drawable.ball);
+        }
 
         return row;
     }
 
     static class ListHolder {
-        TextView noticia;
+        TextView titulo;
         TextView hora;
+        ImageView capa;
     }
 }

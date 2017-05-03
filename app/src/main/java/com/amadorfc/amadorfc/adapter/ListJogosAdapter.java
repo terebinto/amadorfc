@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.amadorfc.amadorfc.R;
 import com.amadorfc.amadorfc.model.Jogos;
 import com.amadorfc.amadorfc.rest.proximosJogos.ProximosJogos;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -60,6 +61,7 @@ public class ListJogosAdapter extends ArrayAdapter<ProximosJogos> {
             holder.visitante = (TextView) row.findViewById(R.id.name_time_visitante);
             holder.estadio = (TextView) row.findViewById(R.id.name);
             holder.logoMandante = (ImageView) row.findViewById(R.id.image_time_mandante);
+            holder.logoVisitante = (ImageView) row.findViewById(R.id.image_time_visitante);
 
             row.setTag(holder);
         } else {
@@ -70,7 +72,8 @@ public class ListJogosAdapter extends ArrayAdapter<ProximosJogos> {
         holder.mandante.setText(jogos.getNomeTime1());
         holder.visitante.setText(jogos.getNomeTime2());
         holder.estadio.setText(jogos.getLocalPartida() +" - "+ jogos.getDataPartida() +" "+ jogos.getHorarioPartida());
-        //holder.logoMandante.setImageBitmap(jogos.getEscudoEquipe1().);
+        Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoMandante);
+        Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoVisitante);
 
         return row;
     }
@@ -80,5 +83,6 @@ public class ListJogosAdapter extends ArrayAdapter<ProximosJogos> {
         TextView mandante;
         TextView estadio;
         ImageView logoMandante;
+        ImageView logoVisitante;
     }
 }

@@ -10,21 +10,23 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.amadorfc.amadorfc.R;
-import com.amadorfc.amadorfc.model.Classificacao;
+import com.amadorfc.amadorfc.rest.equipeClassificacao.EquipeClassificacao;
+
+import java.util.List;
 
 
 /**
  * Created by lucas.viveiros on 17/03/2017.
  */
 
-public class ListClassificacaoAdapter extends ArrayAdapter<Classificacao> {
+public class ListClassificacaoAdapter extends ArrayAdapter<EquipeClassificacao> {
 
 
     Context context;
     int layoutResourceId;
-    Classificacao data[] = null;
+    List<EquipeClassificacao> data = null;
 
-    public ListClassificacaoAdapter(Context context, int layoutResourceId, Classificacao[] data) {
+    public ListClassificacaoAdapter(Context context, int layoutResourceId, List<EquipeClassificacao> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -53,27 +55,49 @@ public class ListClassificacaoAdapter extends ArrayAdapter<Classificacao> {
             holder.golsContra= (TextView) row.findViewById(R.id.txt_header_noticia_9);
             holder.saldoGols= (TextView) row.findViewById(R.id.txt_header_noticia_10);
 
+            holder.classificacao.setText("");
+            holder.equipe.setText("CLUBES");
+            holder.pontosGanhos.setText("PG");
+            holder.jogos.setText("J");
+            holder.vitorias.setText("V");
+            holder.empates.setText("E");
+            holder.derrotas.setText("D");
+            holder.golsPro.setText("GP");
+            holder.golsContra.setText("GC");
+            holder.saldoGols.setText("SG");
+
             row.setTag(holder);
         } else {
             holder = (ListHolder) row.getTag();
         }
 
-        Classificacao classificacao = data[position];
-        holder.classificacao.setText(classificacao.getClassificacao());
-        holder.equipe.setText(classificacao.getEquipe());
-        holder.pontosGanhos.setText(classificacao.getPontosGanhos());
-        holder.jogos.setText(classificacao.getJogos());
-        holder.vitorias.setText(classificacao.getVitorias());
-        holder.empates.setText(classificacao.getEmpates());
-        holder.derrotas.setText(classificacao.getDerrotas());
-        holder.golsPro.setText(classificacao.getGolsPro());
-        holder.golsContra.setText(classificacao.getGolsContra());
-        holder.saldoGols.setText(classificacao.getClassificacao());
+
+        EquipeClassificacao classificacao = data.get(position);
+        holder.classificacao.setText(classificacao.getPosicao());
+        holder.equipe.setText(classificacao.getNomeEquipe());
+        holder.pontosGanhos.setText(classificacao.getPoints());
+        holder.jogos.setText(classificacao.getPlayed());
+        holder.vitorias.setText(classificacao.getWin());
+        holder.empates.setText(classificacao.getDraw());
+        holder.derrotas.setText(classificacao.getLost());
+        holder.golsPro.setText(classificacao.getGoals());
+        holder.golsContra.setText(classificacao.getGoals_conc());
+        holder.saldoGols.setText(classificacao.getGd());
 
         if (position == 0) {
             row.setBackgroundColor(Color.parseColor("#1b5e20"));
-
+            holder.classificacao.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.equipe.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.pontosGanhos.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.jogos.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.vitorias.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.empates.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.derrotas.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.golsPro.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.golsContra.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.saldoGols.setTextColor(Color.parseColor("#FFFFFF"));
     }
+
         return row;
     }
 

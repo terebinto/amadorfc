@@ -68,6 +68,6 @@ public class ClassificacaoTask extends AsyncTask<String, Void, List<EquipeClassi
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando class ", true, false);
+        progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando classificação ", true, false);
     }
 }

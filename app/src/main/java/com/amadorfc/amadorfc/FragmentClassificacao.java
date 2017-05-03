@@ -8,41 +8,41 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.amadorfc.amadorfc.adapter.ListClassificacaoAdapter;
-import com.amadorfc.amadorfc.model.Classificacao;
+import com.amadorfc.amadorfc.app.AmadorfcApplication;
+import com.amadorfc.amadorfc.rest.equipeClassificacao.EquipeClassificacao;
+import com.amadorfc.amadorfc.task.ClassificacaoTask;
+import com.amadorfc.amadorfc.task.listener.ClassificacaoListener;
+
+import java.util.List;
 
 
-public class FragmentClassificacao extends Fragment {
+public class FragmentClassificacao extends Fragment implements ClassificacaoListener{
     private ListView listView1;
-
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-        View v = inflater.inflate(R.layout.fragment_fragment_classificacao, container, false);
-        Classificacao weather_data[] = new Classificacao[]
-                {
-                        new Classificacao("", "CLUBES","PG","J","V","E","D","GP","GC","SG"),
-                        new Classificacao("1", "CORINTHIANS","55","88","77","66","55","33","2","1"),
-                        new Classificacao("2", "PALMEIRA","55","88","77","66","55","33","2","1"),
-                        new Classificacao("3", "SANTOS","55","88","77","66","55","33","2","1"),
-                        new Classificacao("4", "SÃO PAULO","55","88","77","66","55","33","2","1"),
-                        new Classificacao("5", "COXA","55","88","77","66","55","33","2","1"),
-                        new Classificacao("6", "ATLETICO","55","88","77","66","55","33","2","1"),
-                        new Classificacao("7", "GOIAS","55","88","77","66","55","33","2","1"),
-                        new Classificacao("8", "VITÓRIA","55","88","77","66","55","33","2","1"),
-                        new Classificacao("9", "LONDRINA","55","88","77","66","55","33","2","1"),
-                        new Classificacao("10", "PARANÁ","55","88","77","66","55","33","2","1"),
-                };
+        v = inflater.inflate(R.layout.fragment_fragment_classificacao, container, false);
 
-        ListClassificacaoAdapter adapter = new ListClassificacaoAdapter(getActivity(),
-                R.layout.row_item_classificacao, weather_data);
+        return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        new ClassificacaoTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentClassificacao.this).execute();
+    }
+
+    @Override
+    public void loadClassificacao(List<EquipeClassificacao> equipeClassificacao) {
+
+        ListClassificacaoAdapter adapter = new ListClassificacaoAdapter(getActivity(),R.layout.row_item_classificacao, equipeClassificacao);
 
         listView1 = (ListView) v.findViewById(R.id.list);
 
         listView1.setAdapter(adapter);
-
-        return v;
     }
 }

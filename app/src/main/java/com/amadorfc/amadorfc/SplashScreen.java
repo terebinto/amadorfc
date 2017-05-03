@@ -23,90 +23,25 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class SplashScreen extends Activity  implements ClassificacaoListener {
+public class SplashScreen extends Activity{
 
-    String now_playing, earned;
+    private final int SPLASH_DISPLAY_LENGTH = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ClassificacaoTask mTask = new ClassificacaoTask((AmadorfcApplication) this.getApplicationContext(), SplashScreen.this, SplashScreen.this);
-        mTask.execute();
-
-
-        /**
-         * Showing splashscreen while making network calls to download necessary
-         * data before launching the app Will use AsyncTask to make http call
-         */
-        new PrefetchData().execute();
-
-    }
-
-    @Override
-    public void loadClassificacao(List<EquipeClassificacao> classificacao) {
-
-        /*for (Banner ban : banners){
-
-            now_playing = ban.getDescricao();
-            earned = ban.getNomeBanner();
-        }*/
-
-        Log.e("JSON", "> " + now_playing + earned);
-
-    }
-
-    /**
-     * Async Task to make http call
-     */
-    private class PrefetchData extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // before making http calls
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-
-            String json = null;
-
-            if (json != null) {
-                try {
-                    JSONObject jObj = new JSONObject(json)
-                            .getJSONObject("game_stat");
-                    now_playing = jObj.getString("now_playing");
-                    earned = jObj.getString("earned");
-
-                    Log.e("JSON", "> " + now_playing + earned);
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
+                SplashScreen.this.startActivity(mainIntent);
+                SplashScreen.this.finish();
             }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            // After completing http call
-            // will close this activity and lauch main activity
-            Intent i = new Intent(SplashScreen.this, MainActivity.class);
-            i.putExtra("now_playing", now_playing);
-            i.putExtra("earned", earned);
-            startActivity(i);
-
-            // close this activity
-            finish();
-        }
+        }, SPLASH_DISPLAY_LENGTH);
 
     }
+
 
 }

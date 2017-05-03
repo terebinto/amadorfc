@@ -17,7 +17,7 @@ public class NoticiaService extends RestAbstractService<NoticiaRequest, NoticiaR
 
     @Override
     public RestURL getURL() {
-        return RestURL.LISTAR_BANNERS;
+        return RestURL.LISTAR_NOTICIAS;
     }
 
     @Override

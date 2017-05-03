@@ -8,41 +8,42 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.amadorfc.amadorfc.adapter.ListNoticiaAdapter;
+import com.amadorfc.amadorfc.app.AmadorfcApplication;
 import com.amadorfc.amadorfc.model.Noticias;
+import com.amadorfc.amadorfc.rest.noticia.Noticia;
+import com.amadorfc.amadorfc.task.NoticiaTask;
+import com.amadorfc.amadorfc.task.ProximosJogosTask;
+import com.amadorfc.amadorfc.task.listener.NoticiasListener;
+
+import java.util.List;
 
 
-public class FragmentNoticia extends Fragment{
+public class FragmentNoticia extends Fragment implements NoticiasListener{
 
     private ListView listView1;
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_fragment_jogos, container, false);
-        Noticias weather_data[] = new Noticias[]
-                {
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás"),
-                        new Noticias("Robinho é desfalque: Atlético-MG pega o Tricordiano; siga aqui", "15 mitutos atrás")
-                };
+        v = inflater.inflate(R.layout.fragment_fragment_jogos, container, false);
 
-        ListNoticiaAdapter adapter = new ListNoticiaAdapter(getActivity(), R.layout.row_item_noticia, weather_data);
+        return v;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        new NoticiaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentNoticia.this).execute();
+    }
+
+    @Override
+    public void carregarNoticias(List<Noticia> noticias) {
+
+        ListNoticiaAdapter adapter = new ListNoticiaAdapter(getActivity(), R.layout.row_item_noticia, noticias);
         listView1 = (ListView) v.findViewById(R.id.list);
 
         listView1.setAdapter(adapter);
-
-        return v;
-
     }
 }
