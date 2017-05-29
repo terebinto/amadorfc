@@ -55,17 +55,6 @@ public class ListClassificacaoAdapter extends ArrayAdapter<EquipeClassificacao> 
             holder.golsContra= (TextView) row.findViewById(R.id.txt_header_noticia_9);
             holder.saldoGols= (TextView) row.findViewById(R.id.txt_header_noticia_10);
 
-            holder.classificacao.setText("");
-            holder.equipe.setText("CLUBES");
-            holder.pontosGanhos.setText("PG");
-            holder.jogos.setText("J");
-            holder.vitorias.setText("V");
-            holder.empates.setText("E");
-            holder.derrotas.setText("D");
-            holder.golsPro.setText("GP");
-            holder.golsContra.setText("GC");
-            holder.saldoGols.setText("SG");
-
             row.setTag(holder);
         } else {
             holder = (ListHolder) row.getTag();
@@ -96,6 +85,10 @@ public class ListClassificacaoAdapter extends ArrayAdapter<EquipeClassificacao> 
             holder.golsPro.setTextColor(Color.parseColor("#FFFFFF"));
             holder.golsContra.setTextColor(Color.parseColor("#FFFFFF"));
             holder.saldoGols.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+
+    if(position % 2 == 1){
+        row.setBackgroundColor(Color.parseColor("#e0e0e0"));
     }
 
         return row;

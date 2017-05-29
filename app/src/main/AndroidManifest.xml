@@ -29,13 +29,15 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppThemeMain">
+            android:theme="@style/AppThemeMain"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".PrincipalActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppThemePrincial">
+            android:theme="@style/AppThemePrincial"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

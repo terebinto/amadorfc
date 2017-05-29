@@ -13,6 +13,7 @@ import com.amadorfc.amadorfc.rest.equipeClassificacao.EquipeClassificacao;
 import com.amadorfc.amadorfc.task.ClassificacaoTask;
 import com.amadorfc.amadorfc.task.listener.ClassificacaoListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,7 +40,25 @@ public class FragmentClassificacao extends Fragment implements ClassificacaoList
     @Override
     public void loadClassificacao(List<EquipeClassificacao> equipeClassificacao) {
 
-        ListClassificacaoAdapter adapter = new ListClassificacaoAdapter(getActivity(),R.layout.row_item_classificacao, equipeClassificacao);
+        List<EquipeClassificacao> listTemp = new ArrayList<EquipeClassificacao>();
+
+        EquipeClassificacao equipeTemp = new EquipeClassificacao();
+        equipeTemp.setPosicao("");
+        equipeTemp.setNomeEquipe("CLUBES");
+        equipeTemp.setPoints("PG");
+        equipeTemp.setPlayed("J");
+        equipeTemp.setWin("V");
+        equipeTemp.setDraw("E");
+        equipeTemp.setLost("D");
+        equipeTemp.setGoals("GP");
+        equipeTemp.setGoals_conc("GC");
+        equipeTemp.setGd("SG");
+
+        listTemp.add(equipeTemp);
+        listTemp.addAll(equipeClassificacao);
+
+
+        ListClassificacaoAdapter adapter = new ListClassificacaoAdapter(getActivity(),R.layout.row_item_classificacao, listTemp);
 
         listView1 = (ListView) v.findViewById(R.id.list);
 

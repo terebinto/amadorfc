@@ -69,6 +69,6 @@ public class CampeonatoTask extends AsyncTask<String, Void, List<Campeonato>> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog = ProgressDialog.show(activity, "Aguarde", "Ativando cadastro", true, false);
+        progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando campeonato", true, false);
     }
 }
