@@ -16,7 +16,7 @@ import com.amadorfc.amadorfc.task.listener.ClassificacaoListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//
 public class FragmentClassificacao extends Fragment implements ClassificacaoListener{
     private ListView listView1;
     View v;
