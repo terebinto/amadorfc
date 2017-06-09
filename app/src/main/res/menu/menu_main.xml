@@ -16,6 +16,12 @@
         android:id="@+id/action_noticias"
         android:icon="@drawable/news"
         android:title="Noticias" />
+
+    <item
+        android:id="@+id/action_artilharia"
+        android:icon="@drawable/table"
+        android:title="Artilharia" />
+
     <item
         android:id="@+id/action_music"
         android:icon="@drawable/table"

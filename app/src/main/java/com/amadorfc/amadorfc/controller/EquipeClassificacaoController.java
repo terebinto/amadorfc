@@ -26,7 +26,9 @@ public class EquipeClassificacaoController {
         try {
             Log.i("Carregando clas", "INICIO");
             EquipeClassificacaoRequest request = new EquipeClassificacaoRequest();
-            request.seasson = 8;
+
+            //setar o id da liga  selecionado na primeira tela
+            request.campeonato = 1;
 
             EquipeClassificacaoResponse response = new EquipeClassificacaoService().execute(request);
 

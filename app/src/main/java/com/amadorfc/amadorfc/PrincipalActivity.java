@@ -42,6 +42,9 @@ public class PrincipalActivity extends AppCompatActivity {
                     case R.id.action_noticias:
                         fragment = new FragmentNoticia();
                         break;
+                    case R.id.action_artilharia:
+                        fragment = new FragmentArtilharia();
+                        break;
                     case R.id.action_music:
                         fragment = new FragmentClassificacao();
                         break;

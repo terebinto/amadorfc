@@ -26,8 +26,10 @@ public class ProximosJogosController {
         try {
             Log.i("Carregando prox jogos", "INICIO");
             ProximosJogosRequest request = new ProximosJogosRequest();
-
+            //setar o campeonato
+            request.setCampeonato(1);
             ProximosJogosResponse response = new ProximosJogosService().execute(request);
+
             return response.getProximosJogos();
         } finally {
             Log.i("prox jogos carregados", "FIM");

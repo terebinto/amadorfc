@@ -11,13 +11,13 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class ProximosJogosRequest {
 
-    private int seasson;
+    private int campeonato;
 
-    public int getSeasson() {
-        return seasson;
+    public int getCampeonato() {
+        return campeonato;
     }
 
-    public void setSeasson(int seasson) {
-        this.seasson = seasson;
+    public void setCampeonato(int campeonato) {
+        this.campeonato = campeonato;
     }
 }
