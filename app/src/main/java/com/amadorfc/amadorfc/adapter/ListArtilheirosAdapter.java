@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.amadorfc.amadorfc.R;
 import com.amadorfc.amadorfc.rest.artilharia.Artilharia;
-import com.amadorfc.amadorfc.rest.noticia.Noticia;
+import com.amadorfc.amadorfc.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import org.apache.commons.lang3.StringUtils;
@@ -47,9 +47,9 @@ public class ListArtilheirosAdapter extends ArrayAdapter<Artilharia> {
             row = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new ListHolder();
-            //holder.
-            holder.titulo = (TextView) row.findViewById(R.id.equipe_jogador);
-          //  holder.hora = (TextView) row.findViewById(R.id.txt_tempo_noticia);
+            holder.nomeEquipe = (TextView) row.findViewById(R.id.equipe_jogador);
+            holder.nome = (TextView) row.findViewById(R.id.nome_jogador);
+            holder.gols = (TextView) row.findViewById(R.id.gols_jogador);
             holder.capa = (ImageView) row.findViewById(R.id.image_jogador);
 
             row.setTag(holder);
@@ -58,10 +58,11 @@ public class ListArtilheirosAdapter extends ArrayAdapter<Artilharia> {
         }
 
         Artilharia artilharia = data.get(position);
-        holder.titulo.setText(artilharia.getNomeEquipe());
-        //holder.hora.setText(artilharia.getNomeJogador());
+        holder.nomeEquipe.setText(artilharia.getNomeEquipe());
+        holder.nome.setText(artilharia.getNomeJogador());
+        holder.gols.setText(artilharia.getGols());
         if(StringUtils.isNotEmpty(artilharia.getImagem())){
-            Picasso.with(context).load(artilharia.getImagem()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400,120).centerCrop().into(holder.capa);
+            Picasso.with(context).load(artilharia.getImagem()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400,400).centerCrop().transform(new CircleTransform()).into(holder.capa);
         }else{
             holder.capa.setImageResource(R.drawable.ball);
         }
@@ -70,8 +71,9 @@ public class ListArtilheirosAdapter extends ArrayAdapter<Artilharia> {
     }
 
     static class ListHolder {
-        TextView titulo;
-        TextView hora;
+        TextView nomeEquipe;
+        TextView nome;
+        TextView gols;
         ImageView capa;
     }
 }
