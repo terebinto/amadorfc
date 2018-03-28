@@ -1,6 +1,7 @@
 package com.amadorfc.amadorfc;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -20,6 +21,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
     private Fragment fragment;
     private FragmentManager fragmentManager;
+    private int idLiga;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class PrincipalActivity extends AppCompatActivity {
         bottomNavigation.inflateMenu(R.menu.menu_main);
 
         fragment = new FragmentJogos();
+
         fragmentManager = getSupportFragmentManager();
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_container, fragment).commit();
@@ -86,4 +89,12 @@ public class PrincipalActivity extends AppCompatActivity {
         }
     }
 
+
+    public void setIdLiga(int idLiga) {
+        this.idLiga = idLiga;
+    }
+
+    public int getIdLiga() {
+        return idLiga;
+    }
 }

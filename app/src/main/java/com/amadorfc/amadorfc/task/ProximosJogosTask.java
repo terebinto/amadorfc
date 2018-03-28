@@ -32,12 +32,14 @@ public class ProximosJogosTask extends AsyncTask<String, Void, List<ProximosJogo
     private ProgressDialog progressDialog;
     private ProximosJogosListener listener;
     private String errMessage;
+    private int  campeonato;
 
-    public ProximosJogosTask(final AmadorfcApplication application, final Activity activity, final ProximosJogosListener listener) {
+    public ProximosJogosTask(final AmadorfcApplication application, final Activity activity, final ProximosJogosListener listener, final int campeonato) {
         this.application = application;
         this.activity = activity;
         this.listener = listener;
         this.application.registra(this);
+        this.campeonato = campeonato;
 
     }
 
@@ -45,7 +47,7 @@ public class ProximosJogosTask extends AsyncTask<String, Void, List<ProximosJogo
     protected List<ProximosJogos> doInBackground(String... params) {
         try {
 
-            List<ProximosJogos> retornar = ProximosJogosController.loadProximosJogos(application);
+            List<ProximosJogos> retornar = ProximosJogosController.loadProximosJogos(application, getCampeonato());
             return retornar;
         } catch (RestException e) {
             errMessage = e.getMessage();
@@ -73,5 +75,13 @@ public class ProximosJogosTask extends AsyncTask<String, Void, List<ProximosJogo
     protected void onPreExecute() {
         super.onPreExecute();
         progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando Jogos...", true, false);
+    }
+
+    public int getCampeonato() {
+        return campeonato;
+    }
+
+    public void setCampeonato(int campeonato) {
+        this.campeonato = campeonato;
     }
 }

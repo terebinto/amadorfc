@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements CampeonatoListener {
     }
 
     @Override
-    public void carregarCampeonatos(List<Campeonato> campeonatos) {
+    public void carregarCampeonatos(final List<Campeonato> campeonatos) {
 
         ListCampeonatoAdapter adapter = new ListCampeonatoAdapter(this, R.layout.row_item_campeonatos, campeonatos);
         list = (ListView) findViewById(R.id.list);
@@ -44,7 +44,15 @@ public class MainActivity extends Activity implements CampeonatoListener {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                startActivity(new Intent(getBaseContext(), PrincipalActivity.class));
+            Campeonato campeonato = campeonatos.get(position) ;
+
+                // create intent to start another activity
+                Intent intent = new Intent(getBaseContext(), PrincipalActivity.class);
+                // add the selected text item to our intent.
+                intent.putExtra("idLiga", campeonato.getIdLiga());
+                intent.putExtra("categoria", campeonato.getIdCategoriaNoticia());
+
+            startActivity(intent);
             }
         });
     }

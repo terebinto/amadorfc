@@ -1,5 +1,7 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,7 +37,9 @@ public class FragmentNoticia extends Fragment implements NoticiasListener{
     @Override
     public void onResume() {
         super.onResume();
-        new NoticiaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentNoticia.this).execute();
+        Intent intent = ((Activity) getContext()).getIntent();
+        int categoria = intent.getIntExtra("categoria",0);
+        new NoticiaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentNoticia.this,categoria).execute();
     }
 
     @Override

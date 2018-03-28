@@ -21,6 +21,10 @@ public class Campeonato {
     @JsonField(name = "imagem")
     public String imagem;
 
+    @JsonField(name = "idCategoriaNoticia")
+    public String idCategoriaNoticia;
+
+
     public int getIdLiga() {
         return idLiga;
     }
@@ -51,5 +55,13 @@ public class Campeonato {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getIdCategoriaNoticia() {
+        return idCategoriaNoticia;
+    }
+
+    public void setIdCategoriaNoticia(String idCategoriaNoticia) {
+        this.idCategoriaNoticia = idCategoriaNoticia;
     }
 }

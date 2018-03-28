@@ -23,7 +23,7 @@ import java.util.List;
  * Created by lucas.viveiros on 17/03/2017.
  */
 
-public class ListArtilheirosAdapter extends ArrayAdapter<Artilharia> {
+public class    ListArtilheirosAdapter extends ArrayAdapter<Artilharia> {
 
 
     Context context;

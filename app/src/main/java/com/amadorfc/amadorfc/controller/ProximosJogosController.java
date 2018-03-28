@@ -22,12 +22,12 @@ import java.util.List;
  */
 public class ProximosJogosController {
 
-    public static List<ProximosJogos> loadProximosJogos(final Context context) {
+    public static List<ProximosJogos> loadProximosJogos(final Context context, int campeonato) {
         try {
             Log.i("Carregando prox jogos", "INICIO");
             ProximosJogosRequest request = new ProximosJogosRequest();
             //setar o campeonato
-            request.setCampeonato(1);
+            request.setCampeonato(campeonato);
             ProximosJogosResponse response = new ProximosJogosService().execute(request);
 
             return response.getProximosJogos();

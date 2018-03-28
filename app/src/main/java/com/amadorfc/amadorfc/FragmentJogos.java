@@ -1,5 +1,7 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,8 +36,10 @@ public class FragmentJogos extends Fragment implements ProximosJogosListener{
     @Override
     public void onResume() {
         super.onResume();
+        Intent intent = ((Activity) getContext()).getIntent();
+        int campeonato = intent.getIntExtra("idLiga",0);
 
-        new ProximosJogosTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentJogos.this).execute();
+        new ProximosJogosTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentJogos.this,campeonato).execute();
     }
 
     @Override

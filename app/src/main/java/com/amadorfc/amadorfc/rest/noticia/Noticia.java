@@ -24,6 +24,7 @@ public class Noticia {
     @JsonField(name = "dataNoticia")
     public String dataNoticia;
 
+
     @JsonField(name = "images")
     public String images;
 
@@ -74,4 +75,5 @@ public class Noticia {
     public void setImages(String images) {
         this.images = images;
     }
+
 }

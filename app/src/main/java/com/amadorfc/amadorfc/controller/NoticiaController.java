@@ -22,10 +22,11 @@ import java.util.List;
  */
 public class NoticiaController {
 
-    public static List<Noticia> loadNoticias(final Context context) {
+    public static List<Noticia> loadNoticias(final Context context, final int categoria) {
         try {
             Log.i("Carregando getNoticias", "INICIO");
             NoticiaRequest request = new NoticiaRequest();
+            request.setCategoria(categoria);
 
             NoticiaResponse response = new NoticiaService().execute(request);
             return response.getNoticias();

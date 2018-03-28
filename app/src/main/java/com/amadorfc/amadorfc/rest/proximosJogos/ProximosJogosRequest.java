@@ -1,5 +1,6 @@
 package com.amadorfc.amadorfc.rest.proximosJogos;
 
+import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 
 
@@ -11,6 +12,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class ProximosJogosRequest {
 
+    @JsonField(name = "campeonato")
     private int campeonato;
 
     public int getCampeonato() {

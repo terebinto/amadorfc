@@ -1,5 +1,6 @@
 package com.amadorfc.amadorfc.rest.noticia;
 
+import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 
 
@@ -12,5 +13,14 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class NoticiaRequest {
 
+    @JsonField(name = "categoria")
+    private int categoria;
 
+    public int getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
+    }
 }
