@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#fbd365</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
-
-
-
-    <color name="verde200">#a5d6a7</color>
-    <color name="verde400"> #66bb6a</color>
-    <color name="verde500">#4caf50</color>
-    <color name="verde800">#2e7d32</color>
-    <color name="verde900">#1b5e20</color>
+    <color name="verde200">#fbd365</color>
+    <color name="verde400"> #fbd365</color>
+    <color name="verde500">#fbd365</color>
+    <color name="verde800">#fbd365</color>
+    <color name="verde900">#fbd365</color>
+    <color name="laranjaAmador">#fbd365</color>
+    <color name="black">#000000</color>
+    <color name="branco">#ffffff</color>
 
 
 </resources>
