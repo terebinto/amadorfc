@@ -1,9 +1,6 @@
-package com.amadorfc.amadorfc.rest.service.cartaoAmarelo;
+package com.amadorfc.amadorfc.rest.service.cartaoVermelho;
 
 
-import com.amadorfc.amadorfc.rest.artilharia.ArtilhariaRequest;
-import com.amadorfc.amadorfc.rest.artilharia.ArtilhariaResponse;
-import com.amadorfc.amadorfc.rest.cartao.Cartao;
 import com.amadorfc.amadorfc.rest.cartao.CartaoRequest;
 import com.amadorfc.amadorfc.rest.cartao.CartaoResponse;
 import com.amadorfc.amadorfc.rest.service.RestAbstractService;
@@ -15,11 +12,11 @@ import com.amadorfc.amadorfc.rest.service.RestURL;
  * @author ALEXANDRE
  * @since 14/2/2017.
  */
-public class CartaoAmareloService extends RestAbstractService<CartaoRequest, CartaoResponse> {
+public class CartaoVermelhoService extends RestAbstractService<CartaoRequest, CartaoResponse> {
 
     @Override
     public RestURL getURL() {
-        return RestURL.CARREGAR_CARTAO_AMARELO;
+        return RestURL.CARREGAR_CARTAO_VERMELHO;
     }
 
     @Override

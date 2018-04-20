@@ -5,40 +5,37 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import com.amadorfc.amadorfc.app.AmadorfcApplication;
-import com.amadorfc.amadorfc.controller.ArtilhariaController;
-import com.amadorfc.amadorfc.controller.NoticiaController;
-import com.amadorfc.amadorfc.rest.artilharia.Artilharia;
+import com.amadorfc.amadorfc.controller.CartaoAmareloController;
+import com.amadorfc.amadorfc.controller.CartaoVermelhoController;
+import com.amadorfc.amadorfc.rest.cartao.Cartao;
 import com.amadorfc.amadorfc.rest.comum.RestException;
-import com.amadorfc.amadorfc.rest.noticia.Noticia;
-import com.amadorfc.amadorfc.task.listener.ArtilhariaListener;
-import com.amadorfc.amadorfc.task.listener.NoticiasListener;
+import com.amadorfc.amadorfc.task.listener.CartaoAmareloListener;
+import com.amadorfc.amadorfc.task.listener.CartaoVermelhoListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ArtilhariaTask extends AsyncTask<String, Void, List<Artilharia>> {
+public class CartaoVermelhoTask extends AsyncTask<String, Void, List<Cartao>> {
 
     private AmadorfcApplication application;
     private Activity activity;
     private ProgressDialog progressDialog;
-    private ArtilhariaListener listener;
+    private CartaoVermelhoListener listener;
     private String errMessage;
-    private int campeonato;
+    private int  campeonato;
 
-    public ArtilhariaTask(final AmadorfcApplication application, final Activity activity, final ArtilhariaListener listener,final int campeonato) {
+    public CartaoVermelhoTask(final AmadorfcApplication application, final Activity activity, final CartaoVermelhoListener listener, final int campeonato) {
         this.application = application;
         this.activity = activity;
         this.listener = listener;
         this.application.registra(this);
-        this.campeonato = campeonato;
-
+        this.campeonato=campeonato;
     }
 
     @Override
-    protected List<Artilharia> doInBackground(String... params) {
+    protected List<Cartao> doInBackground(String... params) {
         try {
 
-            List<Artilharia> retornar = ArtilhariaController.loadArtilharia(application,getCampeonato());
+            List<Cartao> retornar = CartaoVermelhoController.loadCartaoVermelho(application,getCampeonato());
             return retornar;
         } catch (RestException e) {
             errMessage = e.getMessage();
@@ -47,12 +44,12 @@ public class ArtilhariaTask extends AsyncTask<String, Void, List<Artilharia>> {
     }
 
     @Override
-    protected void onPostExecute(List<Artilharia> b) {
+    protected void onPostExecute(List<Cartao> b) {
         super.onPostExecute(b);
         if (!isCancelled()) {
             progressDialog.dismiss();
             application.desregistra(this);
-            listener.carregarArtilharia(b);
+            listener.carregaCartoesVermelhos(b);
         }
     }
 
@@ -65,7 +62,7 @@ public class ArtilhariaTask extends AsyncTask<String, Void, List<Artilharia>> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando Artilharia", true, false);
+        progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando Cartoões Vermelhos", true, false);
     }
 
     public int getCampeonato() {

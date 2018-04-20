@@ -1,5 +1,7 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -36,7 +38,9 @@ public class FragmentArtilharia extends Fragment implements ArtilhariaListener {
     @Override
     public void onResume() {
         super.onResume();
-        new ArtilhariaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentArtilharia.this).execute();
+        Intent intent = ((Activity) getContext()).getIntent();
+        int campeonato = intent.getIntExtra("idLiga",0);
+        new ArtilhariaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentArtilharia.this,campeonato).execute();
     }
 
     @Override

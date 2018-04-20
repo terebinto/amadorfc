@@ -17,18 +17,19 @@ import java.util.List;
 
 /**
  * Controlador responsavel pelas operacoes controlers
+ *
  * @author Alexnadre Terebinto
  * @since 14/02/17.
  */
 public class ArtilhariaController {
 
-    public static List<Artilharia> loadArtilharia(final Context context) {
+    public static List<Artilharia> loadArtilharia(final Context contextm, final int campeonato) {
         try {
             Log.i("Carregando getArt", "INICIO");
             ArtilhariaRequest request = new ArtilhariaRequest();
 
             //setar campeonato
-            request.campeonato=1;
+            request.campeonato = campeonato;
 
             ArtilhariaResponse response = new ArtilhariaService().execute(request);
             return response.getArtilheiros();
