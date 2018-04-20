@@ -17,7 +17,8 @@ public enum RestURL {
     CARREGAR_JOGOS_REALIZADOS("ultimosJogos.php"),
     VER_JOGO("verJogo.php"),
     CARREGAR_CARTAO_AMARELO("cartoesAmarelos.php"),
-    CARREGAR_CARTAO_VERMELHO("cartoesVermelhos.php");;
+    CARREGAR_CARTAO_VERMELHO("cartoesVermelhos.php"),
+    CARREGAR_APOIO("apoio.php");
 
     private static final String uri = "http://www.amigosdabolaonline.com.br/servicos/%s";
 
