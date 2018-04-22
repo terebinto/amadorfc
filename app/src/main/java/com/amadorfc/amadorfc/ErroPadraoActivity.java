@@ -1,8 +1,11 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,20 +25,18 @@ import com.amadorfc.amadorfc.task.listener.CampeonatoListener;
 
 import java.util.List;
 
-public class MainActivity extends ActionBarActivity implements CampeonatoListener {
+public class ErroPadraoActivity extends ActionBarActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ListView mDrawerList;
     private Toolbar toolbar;
-    ListView list;
-    private List<Campeonato> campeonatos;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_main);
+        setContentView(R.layout.erro_main);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.navdrawer);
@@ -46,13 +47,10 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         }
 
 
-        mDrawerList.setBackgroundColor(getResources().getColor(R.color.branco));
-        toolbar.setBackgroundColor(getResources().getColor(R.color.verde900));
-
         drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(drawerToggle);
         String[] values = new String[]{
-                "Sobre o AMADOR FC", "Adicione seu camponato", "Apoio", "Contato"
+                "Inicio"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -64,19 +62,10 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
                 switch (position) {
                     case 0:
                         mDrawerLayout.closeDrawer(Gravity.START);
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        startActivity(intent);
                         break;
-                    case 1:
-                        mDrawerLayout.closeDrawer(Gravity.START);
 
-                        break;
-                    case 2:
-                        mDrawerLayout.closeDrawer(Gravity.START);
-
-                        break;
-                    case 3:
-                        mDrawerLayout.closeDrawer(Gravity.START);
-
-                        break;
                 }
 
             }
@@ -112,68 +101,10 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        new CampeonatoTask((AmadorfcApplication) this.getApplicationContext(), MainActivity.this, MainActivity.this).execute();
-    }
-
-    @Override
-    public void carregarCampeonatos(List<Campeonato> campeonatos) {
 
 
-        try {
-
-            ListCampeonatoAdapter adapter = new ListCampeonatoAdapter(this, R.layout.row_item_campeonatos, campeonatos);
-            this.setCampeonatos(campeonatos);
-
-            if (campeonatos == null || campeonatos.size() == 0) {
-                Intent intent = new Intent(getBaseContext(), ErroPadraoActivity.class);
-                startActivity(intent);
-            }
 
 
-            list = (ListView) findViewById(R.id.list);
-            list.setAdapter(adapter);
-
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-
-                    Campeonato campeonato = getCampeonatos().get(position);
-                    Intent intent = new Intent(getBaseContext(), PrincipalActivity.class);
-                    intent.putExtra("idLiga", campeonato.getIdLiga());
-                    intent.putExtra("categoria", campeonato.getIdCategoriaNoticia());
-                    startActivity(intent);
-                }
-            });
 
 
-            if (campeonatos == null || campeonatos.size() == 0) {
-                Intent intent = new Intent(getBaseContext(), ErroPadraoActivity.class);
-                startActivity(intent);
-            }
-
-
-        } catch (NullPointerException e) {
-
-            Intent intent = new Intent(getBaseContext(), ErroPadraoActivity.class);
-            startActivity(intent);
-
-
-        }
-
-
-    }
-
-
-    public List<Campeonato> getCampeonatos() {
-        return campeonatos;
-    }
-
-    public void setCampeonatos(List<Campeonato> campeonatos) {
-        this.campeonatos = campeonatos;
-    }
 }

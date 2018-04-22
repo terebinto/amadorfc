@@ -39,9 +39,8 @@ public class FragmentJogosRealizados extends Fragment implements JogosRealizados
     public void onResume() {
         super.onResume();
         Intent intent = ((Activity) getContext()).getIntent();
-        int idJogo = intent.getIntExtra("idJogo",0);
-
-        new JogosRealizadosTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentJogosRealizados.this,idJogo).execute();
+        int campeonato = intent.getIntExtra("idLiga",0);
+        new JogosRealizadosTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentJogosRealizados.this,campeonato).execute();
     }
 
 

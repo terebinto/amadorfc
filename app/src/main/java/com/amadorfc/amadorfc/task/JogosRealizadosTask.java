@@ -3,6 +3,7 @@ package com.amadorfc.amadorfc.task;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.amadorfc.amadorfc.app.AmadorfcApplication;
 import com.amadorfc.amadorfc.controller.JogosRealizadosController;
@@ -43,6 +44,8 @@ public class JogosRealizadosTask extends AsyncTask<String, Void, List<JogosReali
     @Override
     protected List<JogosRealizados> doInBackground(String... params) {
         try {
+
+            Log.i("Campeonato selecionado", String.valueOf(getCampeonato()));
 
             List<JogosRealizados> retornar = JogosRealizadosController.loadJogosRealizados(application,getCampeonato());
             return retornar;

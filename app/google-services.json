@@ -1,0 +1,94 @@
+{
+  "project_info": {
+    "project_number": "134927168989",
+    "firebase_url": "https://amigos-da-bola.firebaseio.com",
+    "project_id": "amigos-da-bola",
+    "storage_bucket": "amigos-da-bola.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134927168989:android:52167f3fb485f9a9",
+        "android_client_info": {
+          "package_name": "com.amadorfc.amadorfc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134927168989-63ghpjqcnb9i5ekqhvjbrvsbjp54gbjb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amadorfc.amadorfc",
+            "certificate_hash": "18d95e3e185116adb4f7134118f613bf395b62dc"
+          }
+        },
+        {
+          "client_id": "134927168989-jj7fdp9llvbn3d36hkafu8i69jqjpe7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfkAlI-iJvS--fTezw9AlCuCipStJEOsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134927168989:android:916b322415acc3d1",
+        "android_client_info": {
+          "package_name": "com.tekinarslan.material.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134927168989-6hlvd2as2td4voub7je2kdi0516396l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tekinarslan.material.sample",
+            "certificate_hash": "18d95e3e185116adb4f7134118f613bf395b62dc"
+          }
+        },
+        {
+          "client_id": "134927168989-jj7fdp9llvbn3d36hkafu8i69jqjpe7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfkAlI-iJvS--fTezw9AlCuCipStJEOsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134927168989-jj7fdp9llvbn3d36hkafu8i69jqjpe7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

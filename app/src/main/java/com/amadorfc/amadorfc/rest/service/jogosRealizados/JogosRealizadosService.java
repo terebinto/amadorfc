@@ -18,7 +18,7 @@ public class JogosRealizadosService extends RestAbstractService<JogosRealizadosR
 
     @Override
     public RestURL getURL() {
-        return RestURL.CARREGAR_PROXIMOS_JOGOS;
+        return RestURL.CARREGAR_JOGOS_REALIZADOS;
     }
 
     @Override

@@ -3,7 +3,9 @@ package com.amadorfc.amadorfc;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FragmentNoticia extends Fragment implements NoticiasListener{
+public class FragmentNoticia extends Fragment implements NoticiasListener {
 
     private ListView listView1;
     View v;
@@ -36,7 +38,6 @@ public class FragmentNoticia extends Fragment implements NoticiasListener{
         v = inflater.inflate(R.layout.fragment_fragment_jogos, container, false);
 
 
-
         return v;
     }
 
@@ -45,37 +46,54 @@ public class FragmentNoticia extends Fragment implements NoticiasListener{
         super.onResume();
         Intent intent = ((Activity) getContext()).getIntent();
         String categoria = intent.getStringExtra("categoria");
-        new NoticiaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentNoticia.this,Integer.valueOf(categoria)).execute();
+        new NoticiaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentNoticia.this, Integer.valueOf(categoria)).execute();
     }
 
     @Override
     public void carregarNoticias(List<Noticia> noticias) {
 
-        ListNoticiaAdapter adapter = new ListNoticiaAdapter(getActivity(), R.layout.row_item_noticia, noticias);
-        listView1 = (ListView) v.findViewById(R.id.list);
-        this.setNoticiasGeral(noticias);
 
-        listView1.setAdapter(adapter);
-       // listView1.setOnClickListener(this);
+        try {
+
+            ListNoticiaAdapter adapter = new ListNoticiaAdapter(getActivity(), R.layout.row_item_noticia, noticias);
+            listView1 = (ListView) v.findViewById(R.id.list);
+            this.setNoticiasGeral(noticias);
+
+            listView1.setAdapter(adapter);
+
+            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+
+                    Log.i("Adicionando Noticia", String.valueOf(position));
+
+                    Intent intent = new Intent(getActivity(), NoticiaAbertaActivity.class);
+                    Noticia noticia = getNoticiasGeral().get(position + 1);
+                    intent.putExtra("noticiaAlias", noticia.getAlias());
+                    intent.putExtra("noticiaDataNoticia", noticia.getDataNoticia());
+                    intent.putExtra("noticiaImages", noticia.getImages());
+                    intent.putExtra("noticiaTitulo",  noticia.getTitulo());
+                    intent.putExtra("noticiaNoticia", noticia.getNoticia());
+
+                    Log.i("Noticia", noticia.getTitulo());
 
 
-        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
 
 
-                // create intent to start another activity
-                Intent intent = new Intent(getActivity(), PrincipalActivity.class);
-                Noticia noticia = getNoticiasGeral().get(position+1);
-                // add the selected text item to our intent.
-                //intent.putExtra("idLiga", noticia.getId());
-                //intent.putExtra("categoria", noticia.getAlias());
+                    startActivity(intent);
+                }
+            });
 
-                startActivity(intent);
-            }
-        });
+
+        } catch (Exception e) {
+            Intent intent = new Intent(getContext(), ErroPadraoActivity.class);
+            startActivity(intent);
+
+        }
+
+
     }
 
     public List<Noticia> getNoticiasGeral() {

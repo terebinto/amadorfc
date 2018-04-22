@@ -35,10 +35,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/laranjaAmador"
+        android:background="@color/black"
         android:choiceMode="singleChoice"
-        android:divider="@android:color/white"
-        android:textColor="@color/branco"
+        android:divider="@android:color/holo_orange_light"
         android:dividerHeight="2dp"
         android:drawSelectorOnTop="false"></ListView>
 

@@ -39,6 +39,22 @@
             android:theme="@style/AppThemePrincial"
             android:screenOrientation="portrait" >
         </activity>
+
+        <activity
+            android:name=".ErroPadraoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincial"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".NoticiaAbertaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincial"
+            android:screenOrientation="portrait" >
+        </activity>
+
+
     </application>
 
 </manifest>

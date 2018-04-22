@@ -54,6 +54,9 @@ public class ListJogoRealizadosAdapter extends ArrayAdapter<JogosRealizados> {
             holder.logoMandante = (ImageView) row.findViewById(R.id.image_time_mandante);
             holder.logoVisitante = (ImageView) row.findViewById(R.id.image_time_visitante);
 
+            holder.placar1 = (TextView) row.findViewById(R.id.time_mandante_placar1);
+            holder.placar2 = (TextView) row.findViewById(R.id.time_mandante_placar2);
+
             row.setTag(holder);
         } else {
             holder = (ListHolder) row.getTag();
@@ -62,6 +65,8 @@ public class ListJogoRealizadosAdapter extends ArrayAdapter<JogosRealizados> {
         jogos = jogosRealizados.get(position);
         holder.mandante.setText(jogos.getNomeTime1());
         holder.visitante.setText(jogos.getNomeTime2());
+        holder.placar1.setText(jogos.getScore1());
+        holder.placar2.setText(jogos.getScore2());
         holder.estadio.setText(jogos.getLocalPartida() +" - "+ jogos.getDataPartida() +" "+ jogos.getHorarioPartida());
         Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoMandante);
         Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoVisitante);
@@ -73,6 +78,8 @@ public class ListJogoRealizadosAdapter extends ArrayAdapter<JogosRealizados> {
         TextView visitante;
         TextView mandante;
         TextView estadio;
+        TextView placar1;
+        TextView placar2;
         ImageView logoMandante;
         ImageView logoVisitante;
     }
