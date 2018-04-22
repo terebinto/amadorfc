@@ -3,6 +3,7 @@ package com.amadorfc.amadorfc;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -45,6 +46,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
             toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
         }
 
+        //Debug.waitForDebugger();
 
         mDrawerList.setBackgroundColor(getResources().getColor(R.color.branco));
         toolbar.setBackgroundColor(getResources().getColor(R.color.verde900));

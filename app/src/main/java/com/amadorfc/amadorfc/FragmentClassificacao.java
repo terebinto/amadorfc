@@ -1,5 +1,7 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,7 +36,10 @@ public class FragmentClassificacao extends Fragment implements ClassificacaoList
     @Override
     public void onResume() {
         super.onResume();
-        new ClassificacaoTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentClassificacao.this).execute();
+        Intent intent = ((Activity) getContext()).getIntent();
+        int campeonato = intent.getIntExtra("idLiga",0);
+
+         new ClassificacaoTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentClassificacao.this,campeonato).execute();
     }
 
     @Override
@@ -44,7 +49,7 @@ public class FragmentClassificacao extends Fragment implements ClassificacaoList
 
         EquipeClassificacao equipeTemp = new EquipeClassificacao();
         equipeTemp.setPosicao("");
-        equipeTemp.setNomeEquipe("CLUBES");
+        equipeTemp.setNomeEquipe("EQUIPE");
         equipeTemp.setPoints("PG");
         equipeTemp.setPlayed("J");
         equipeTemp.setWin("V");

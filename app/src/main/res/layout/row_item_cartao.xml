@@ -95,7 +95,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/nome_jogador"
+                    android:id="@+id/nome_evento_jogador"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"

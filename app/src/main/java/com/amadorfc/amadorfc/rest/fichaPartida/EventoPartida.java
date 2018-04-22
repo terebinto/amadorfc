@@ -15,6 +15,13 @@ public class EventoPartida {
     @JsonField(name = "minuto")
     public String minuto;
 
+    @JsonField(name = "imagem")
+    public String imagem;
+
+    @JsonField(name = "label")
+    public String label;
+
+
     public String getNomeAtleta() {
         return nomeAtleta;
     }
@@ -29,5 +36,21 @@ public class EventoPartida {
 
     public void setMinuto(String minuto) {
         this.minuto = minuto;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

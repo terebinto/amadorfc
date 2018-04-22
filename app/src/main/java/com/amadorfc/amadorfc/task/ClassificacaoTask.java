@@ -28,20 +28,22 @@ public class ClassificacaoTask extends AsyncTask<String, Void, List<EquipeClassi
     private ProgressDialog progressDialog;
     private ClassificacaoListener listener;
     private String errMessage;
+    private int campeonato;
 
     public ClassificacaoTask(
-            final AmadorfcApplication application, final Activity activity, final ClassificacaoListener listener) {
+            final AmadorfcApplication application, final Activity activity, final ClassificacaoListener listener, final int campeonato) {
         this.application = application;
         this.activity = activity;
         this.listener = listener;
         this.application.registra(this);
+        this.campeonato = campeonato;
 
     }
 
     @Override
     protected List<EquipeClassificacao>  doInBackground(String... params) {
         try {
-            List<EquipeClassificacao>  retorno = EquipeClassificacaoController.loadClassificacao(application);
+            List<EquipeClassificacao>  retorno = EquipeClassificacaoController.loadClassificacao(application,getCampeonato());
             return retorno;
         } catch (RestException e) {
             errMessage = e.getMessage();
@@ -69,5 +71,13 @@ public class ClassificacaoTask extends AsyncTask<String, Void, List<EquipeClassi
     protected void onPreExecute() {
         super.onPreExecute();
         progressDialog = ProgressDialog.show(activity, "Aguarde", "Carregando classificação ", true, false);
+    }
+
+    public int getCampeonato() {
+        return campeonato;
+    }
+
+    public void setCampeonato(int campeonato) {
+        this.campeonato = campeonato;
     }
 }

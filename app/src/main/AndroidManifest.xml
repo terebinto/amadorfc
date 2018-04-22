@@ -54,6 +54,13 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity
+            android:name=".FichaPartidaActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemePrincial"
+            android:screenOrientation="portrait" >
+        </activity>
+
 
     </application>
 

@@ -69,8 +69,10 @@ public class FragmentNoticia extends Fragment implements NoticiasListener {
 
                     Log.i("Adicionando Noticia", String.valueOf(position));
 
-                    Intent intent = new Intent(getActivity(), NoticiaAbertaActivity.class);
-                    Noticia noticia = getNoticiasGeral().get(position + 1);
+                    Intent intent = getActivity().getIntent();
+                    intent.setClass(getActivity(), NoticiaAbertaActivity.class);
+
+                    Noticia noticia = getNoticiasGeral().get(position);
                     intent.putExtra("noticiaAlias", noticia.getAlias());
                     intent.putExtra("noticiaDataNoticia", noticia.getDataNoticia());
                     intent.putExtra("noticiaImages", noticia.getImages());

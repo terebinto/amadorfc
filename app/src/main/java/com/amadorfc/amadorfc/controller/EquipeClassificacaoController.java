@@ -22,13 +22,13 @@ import java.util.List;
  */
 public class EquipeClassificacaoController {
 
-    public static List<EquipeClassificacao> loadClassificacao(final Context context) {
+    public static List<EquipeClassificacao> loadClassificacao(final Context contex, final int campeonato) {
         try {
             Log.i("Carregando clas", "INICIO");
             EquipeClassificacaoRequest request = new EquipeClassificacaoRequest();
 
             //setar o id da liga  selecionado na primeira tela
-            request.campeonato = 1;
+            request.campeonato = campeonato;
 
             EquipeClassificacaoResponse response = new EquipeClassificacaoService().execute(request);
 

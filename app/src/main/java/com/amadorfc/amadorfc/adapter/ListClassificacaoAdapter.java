@@ -74,7 +74,7 @@ public class ListClassificacaoAdapter extends ArrayAdapter<EquipeClassificacao> 
         holder.saldoGols.setText(classificacao.getGd());
 
         if (position == 0) {
-            row.setBackgroundColor(Color.parseColor("#1b5e20"));
+            row.setBackgroundColor(Color.BLACK);
             holder.classificacao.setTextColor(Color.parseColor("#FFFFFF"));
             holder.equipe.setTextColor(Color.parseColor("#FFFFFF"));
             holder.pontosGanhos.setTextColor(Color.parseColor("#FFFFFF"));
