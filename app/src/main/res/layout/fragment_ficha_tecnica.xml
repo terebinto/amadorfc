@@ -1,17 +1,36 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.amadorfc.amadorfc.FragmentJogosRealizados"
+    tools:context="com.amadorfc.amadorfc.FragmentFichaPartida"
     android:layout_gravity="center"
     android:background="@android:color/white">
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_height="match_parent"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:divider="@android:color/white"/>
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:id="@+id/list2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/white"/>
+
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:divider="@android:color/white"/>
+
+
+    </RelativeLayout>
+
+
+
+
 
 
 </FrameLayout>

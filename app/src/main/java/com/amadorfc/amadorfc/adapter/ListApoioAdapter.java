@@ -59,9 +59,9 @@ public class ListApoioAdapter extends ArrayAdapter<Apoio> {
         Apoio apoio = data.get(position);
         holder.titulo.setText(apoio.getTitulo());
         if(StringUtils.isNotEmpty(apoio.getImagem())){
-            Picasso.with(context).load(apoio.getImagem()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400,400).centerCrop().transform(new CircleTransform()).into(holder.imagem);
+            Picasso.with(context).load(apoio.getImagem()).placeholder(R.drawable.bg_no_image).error(R.drawable.bg_no_image).resize(400,400).centerCrop().transform(new CircleTransform()).into(holder.imagem);
         }else{
-            holder.imagem.setImageResource(R.drawable.ball);
+            holder.imagem.setImageResource(R.drawable.bg_no_image);
         }
 
         return row;

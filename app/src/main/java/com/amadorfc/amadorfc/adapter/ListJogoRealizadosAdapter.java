@@ -67,9 +67,17 @@ public class ListJogoRealizadosAdapter extends ArrayAdapter<JogosRealizados> {
         //holder.visitante.setText(jogos.getNomeTime2());
         holder.placar1.setText(jogos.getScore1());
         holder.placar2.setText(jogos.getScore2());
-        holder.estadio.setText(jogos.getLocalPartida() +" - "+ jogos.getDataPartida() +" "+ jogos.getHorarioPartida());
-        Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(80,80).centerCrop().into(holder.logoMandante);
-        Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(80,80).centerCrop().into(holder.logoVisitante);
+        holder.estadio.setText(jogos.getLocalPartida() + " - " + jogos.getDataPartida() + " " + jogos.getHorarioPartida());
+
+        if (jogos.getEscudoEquipe1() !=null && !jogos.getEscudoEquipe1().isEmpty()) {
+            Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(80, 80).centerCrop().into(holder.logoMandante);
+
+        }
+
+        if (jogos.getEscudoEquipe2() !=null && !jogos.getEscudoEquipe2().isEmpty()) {
+            Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(80, 80).centerCrop().into(holder.logoVisitante);
+        }
+
 
         return row;
     }

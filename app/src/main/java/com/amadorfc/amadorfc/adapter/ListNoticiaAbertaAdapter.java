@@ -63,9 +63,9 @@ public class ListNoticiaAbertaAdapter extends ArrayAdapter<Noticia> {
         holder.hora.setText(noticia.getDataNoticia());
         holder.noticia.setText(noticia.getNoticia());
         if (StringUtils.isNotEmpty(noticia.getImages())) {
-            Picasso.with(context).load(noticia.getImages()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400, 120).centerCrop().into(holder.capa);
+            Picasso.with(context).load(noticia.getImages()).placeholder(R.drawable.bg_no_image).error(R.drawable.bg_no_image).resize(400, 120).centerCrop().into(holder.capa);
         } else {
-            holder.capa.setImageResource(R.drawable.ball);
+            holder.capa.setImageResource(R.drawable.bg_no_image);
         }
 
         return row;

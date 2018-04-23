@@ -27,6 +27,7 @@ import java.util.List;
 public class FragmentFichaPartida extends Fragment implements FichaPartidaListener {
 
     private ListView listView1;
+    private ListView listView2;
     View v;
 
     @Override
@@ -59,6 +60,24 @@ public class FragmentFichaPartida extends Fragment implements FichaPartidaListen
         FichaPartidaAdapter adapter = new FichaPartidaAdapter(getActivity(), R.layout.row_item_ficha_tecnica, partida, eventos);
         listView1 = (ListView) v.findViewById(R.id.list);
         listView1.setAdapter(adapter);
+
+        List<JogosRealizados> jogosRealizados = new ArrayList<>();
+        JogosRealizados realizados = new JogosRealizados();
+        realizados.setEscudoEquipe1(partida.getEscudoEquipe1());
+        realizados.setNomeTime1(partida.getNomeEquipe1());
+        realizados.setScore1(partida.getPlacar1());
+        realizados.setScore2(partida.getPlacar2());
+        realizados.setLocalPartida(partida.getLocal());
+        realizados.setEscudoEquipe2(partida.getEscudoEquipe2());
+        realizados.setDataPartida(partida.getDataPartida());
+        realizados.setHorarioPartida("Ficha Técnica");
+
+        jogosRealizados.add(realizados);
+
+
+        ListJogoRealizadosAdapter adapter2 = new ListJogoRealizadosAdapter(getActivity(), R.layout.row_item_rodada_realizado,  jogosRealizados);
+        listView2 = (ListView) v.findViewById(R.id.list2);
+        listView2.setAdapter(adapter2);
 
     }
 }

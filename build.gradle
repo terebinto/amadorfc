@@ -36,6 +36,10 @@ allprojects {
         maven {
             url "https://mvnrepository.com/artifact/com.jcraft/jsch"
         }
+
+
+         maven { url "https://jitpack.io" }
+
     }
 }
 

@@ -63,9 +63,9 @@ public class ListCartoesAmarelosAdapter extends ArrayAdapter<Cartao> {
         holder.nome.setText(cartao.getNomeJogador());
         holder.total.setText(cartao.getGols());
         if (StringUtils.isNotEmpty(cartao.getImagem())) {
-            Picasso.with(context).load(cartao.getImagem()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(400, 400).centerCrop().transform(new CircleTransform()).into(holder.capa);
+            Picasso.with(context).load(cartao.getImagem()).placeholder(R.drawable.bg_no_image).error(R.drawable.bg_no_image).resize(400, 400).centerCrop().transform(new CircleTransform()).into(holder.capa);
         } else {
-            holder.capa.setImageResource(R.drawable.ball);
+            holder.capa.setImageResource(R.drawable.bg_no_image);
         }
 
         return row;

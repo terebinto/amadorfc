@@ -85,11 +85,18 @@ public class ListClassificacaoAdapter extends ArrayAdapter<EquipeClassificacao> 
             holder.golsPro.setTextColor(Color.parseColor("#FFFFFF"));
             holder.golsContra.setTextColor(Color.parseColor("#FFFFFF"));
             holder.saldoGols.setTextColor(Color.parseColor("#FFFFFF"));
-    }
+        }else{
 
-    if(position % 2 == 1){
-        row.setBackgroundColor(Color.parseColor("#e0e0e0"));
-    }
+            if(position % 2 == 1){
+                row.setBackgroundColor(Color.WHITE);
+            }else{
+                row.setBackgroundColor(Color.LTGRAY);
+            }
+
+
+        }
+
+
 
         return row;
     }

@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -18,7 +19,7 @@
         android:shape="rectangle"
         card:cardBackgroundColor="@android:color/white"
         card:cardCornerRadius="10dp"
-        card:cardElevation="@dimen/margin_5">
+        card:cardElevation="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,19 +32,22 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:weightSum="1">
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
+                    android:layout_centerInParent="true"
+                    android:layout_weight="2.13">
 
 
                     <ImageView
                         android:id="@+id/image_evento_ficha"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:paddingLeft="10dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
@@ -52,17 +56,18 @@
 
                     <TextView
                         android:id="@+id/name_atleta_ficha"
-                        android:layout_width="80dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_gravity="end|center_vertical"
                         android:layout_marginRight="@dimen/margin_15"
                         android:layout_weight="1"
+                        android:paddingLeft="20dp"
                         android:text=""
                         android:textAlignment="textEnd"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@android:color/black"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
 
@@ -70,7 +75,7 @@
 
                 <TextView
                     android:id="@+id/minuto_ficha"
-                    android:layout_width="100dp"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_gravity="start|center_vertical"

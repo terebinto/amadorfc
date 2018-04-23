@@ -72,8 +72,8 @@ public class ListJogosAdapter extends ArrayAdapter<ProximosJogos> {
         holder.mandante.setText(jogos.getNomeTime1());
         holder.visitante.setText(jogos.getNomeTime2());
         holder.estadio.setText(jogos.getLocalPartida() +" - "+ jogos.getDataPartida() +" "+ jogos.getHorarioPartida());
-        Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoMandante);
-        Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.ball).error(R.drawable.ball).resize(60,60).centerCrop().into(holder.logoVisitante);
+        Picasso.with(context).load(jogos.getEscudoEquipe1()).placeholder(R.drawable.bg_no_image).error(R.drawable.bg_no_image).resize(60,60).centerCrop().into(holder.logoMandante);
+        Picasso.with(context).load(jogos.getEscudoEquipe2()).placeholder(R.drawable.bg_no_image).error(R.drawable.bg_no_image).resize(60,60).centerCrop().into(holder.logoVisitante);
 
         return row;
     }

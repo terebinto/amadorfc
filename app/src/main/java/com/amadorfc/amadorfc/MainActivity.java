@@ -1,12 +1,15 @@
 package com.amadorfc.amadorfc;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Debug;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.amadorfc.amadorfc.adapter.ListCampeonatoAdapter;
 import com.amadorfc.amadorfc.app.AmadorfcApplication;
@@ -23,6 +27,9 @@ import com.amadorfc.amadorfc.task.listener.CampeonatoListener;
 
 import java.util.List;
 
+import libs.mjn.prettydialog.PrettyDialog;
+import libs.mjn.prettydialog.PrettyDialogCallback;
+
 public class MainActivity extends ActionBarActivity implements CampeonatoListener {
 
     private DrawerLayout mDrawerLayout;
@@ -31,6 +38,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
     private Toolbar toolbar;
     ListView list;
     private List<Campeonato> campeonatos;
+    AppCompatButton btn_titleMessage, btn_okCancel, btn_allCustom;
 
 
     @Override
@@ -45,6 +53,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
             setSupportActionBar(toolbar);
             toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
         }
+
 
         //Debug.waitForDebugger();
 
@@ -65,6 +74,8 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
                                     int position, long id) {
                 switch (position) {
                     case 0:
+                        setup_okCancelDialog();
+
                         mDrawerLayout.closeDrawer(Gravity.START);
                         break;
                     case 1:
@@ -84,6 +95,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
             }
         });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -168,6 +180,145 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         }
 
 
+    }
+
+
+    private void setup_titleMessageDialog() {
+        final PrettyDialog dialog = new PrettyDialog(this)
+                .setIcon(
+                        R.drawable.pdlg_icon_info,    // Icon resource
+                        R.color.pdlg_color_green,      // Icon tint
+                        new PrettyDialogCallback() {  // Icon OnClick listener
+                            @Override
+                            public void onClick() {
+                                // Do what you gotta do
+                            }
+                        })
+                .setTitle("PrettyDialog Title")
+                .setMessage("PrettyDialog Message")
+                .addButton(
+                        "OK",
+                        R.color.pdlg_color_white,
+                        R.color.pdlg_color_green,
+                        new PrettyDialogCallback() {
+                            @Override
+                            public void onClick() {
+                                // Do what you gotta do
+                            }
+                        }
+                )
+                .addButton(
+                        "Cancel",
+                        R.color.pdlg_color_white,
+                        R.color.pdlg_color_red,
+                        new PrettyDialogCallback() {
+                            @Override
+                            public void onClick() {
+                                // Dismiss
+                            }
+                        }
+                )
+                .addButton(
+                        "Option 3",
+                        R.color.pdlg_color_black,
+                        R.color.pdlg_color_gray,
+                        new PrettyDialogCallback() {
+                            @Override
+                            public void onClick() {
+                                Toast.makeText(MainActivity.this, "I Do Nothing :)", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                )
+                .setTitle("Do you agree?")
+                .setTitleColor(R.color.pdlg_color_blue)
+                .setAnimationEnabled(true)
+                .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
+                .setMessageColor(R.color.pdlg_color_gray)
+                .setTypeface(Typeface.createFromAsset(getResources().getAssets(), "myfont.ttf"));
+        btn_titleMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
+    }
+
+    private void setup_okCancelDialog() {
+        final PrettyDialog dialog = new PrettyDialog(this);
+        dialog
+                .setTitle("")
+                .setMessage("Do you want to Proceed?")
+                .setIcon(R.drawable.pdlg_icon_info, R.color.pdlg_color_blue, null)
+                .addButton("OK", R.color.pdlg_color_white, R.color.pdlg_color_green, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "OK selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addButton("Cancel", R.color.pdlg_color_white, R.color.pdlg_color_red, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Cancel selected", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        dialog.show();
+
+    }
+
+    private void setup_allCustomDialog() {
+        final PrettyDialog dialog = new PrettyDialog(this);
+        dialog
+                .setTitle("Custom PrettyDialog")
+                .setTitleColor(R.color.pdlg_color_blue)
+                .setMessage("You can customize icon, buttons, button colors and text colors...")
+                .setMessageColor(R.color.pdlg_color_black)
+                .setTypeface(Typeface.createFromAsset(getResources().getAssets(), "myfont.ttf"))
+                .setAnimationEnabled(false)
+                .setIcon(R.drawable.pdlg_icon_close, R.color.pdlg_color_red, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Close selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addButton("Option 1", R.color.pdlg_color_white, R.color.pdlg_color_blue, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Option 1 selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addButton("Option 2", R.color.pdlg_color_black, R.color.pdlg_color_gray, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Option 2 selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addButton("Option 3", R.color.pdlg_color_white, R.color.pdlg_color_green, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Option 3 selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addButton("Option 4", R.color.pdlg_color_white, R.color.pdlg_color_blue, new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        dialog.dismiss();
+                        Toast.makeText(MainActivity.this, "Option 4 selected", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        btn_allCustom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
     }
 
 
