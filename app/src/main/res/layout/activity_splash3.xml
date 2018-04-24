@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background" >
+    android:padding="20dp"
+    android:background="@color/verdecap" >
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="300px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/logoamador" />
+        android:src="@drawable/capivara" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -18,6 +19,6 @@
         android:textColor="#454545"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:text="Terebyte Todos os Direitos Reservados" />
+        android:text="Apoio - Capivara WEB TV" />
 
 </RelativeLayout>

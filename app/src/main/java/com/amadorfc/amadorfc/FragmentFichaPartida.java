@@ -43,7 +43,7 @@ public class FragmentFichaPartida extends Fragment implements FichaPartidaListen
         super.onResume();
         Intent intent = ((Activity) getContext()).getIntent();
         int idJogo = intent.getIntExtra("idJogo", 0);
-        idJogo = 1458;
+        //idJogo = 1458;
         new FichaPartidaTask((AmadorfcApplication) getActivity().getApplicationContext(), getActivity(), FragmentFichaPartida.this, idJogo).execute();
     }
 
