@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(drawerToggle);
         String[] values = new String[]{
-                "Sobre o AMADOR FC", "Adicione seu camponato", "Apoio", "Contato"
+                "Adicione seu campeonato", "Contato","Sobre o AMADOR FC"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -74,22 +74,23 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
                                     int position, long id) {
                 switch (position) {
                     case 0:
-                        setup_okCancelDialog();
-
+                        setup_okCancelDialog("Adicione seu campeonato", "Amador FC é um aplicativo destinado aos amantes do futebol amador. Através dele é possível acompanhar com facilidade os diversos campeonatos de futebol de sua cidade. \n" +
+                                "\n" +
+                                "\n" +
+                                "\n" +
+                                "Informações como notícias, tabelas de jogos, horários das próximas rodadas, resultados e artilharia dos jogos. Além disso é possível divulgar os patrocinadores de cada campeonato.");
                         mDrawerLayout.closeDrawer(Gravity.START);
                         break;
                     case 1:
+                        setup_okCancelDialog("Contato", "contato@aterebinto.com.br");
                         mDrawerLayout.closeDrawer(Gravity.START);
 
                         break;
                     case 2:
+                        setup_okCancelDialog("Amador FC Versão 1.0", "http://www.afcapp.com.br ");
                         mDrawerLayout.closeDrawer(Gravity.START);
-
                         break;
-                    case 3:
-                        mDrawerLayout.closeDrawer(Gravity.START);
 
-                        break;
                 }
 
             }
@@ -244,24 +245,18 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         });
     }
 
-    private void setup_okCancelDialog() {
+    private void setup_okCancelDialog(String title, String message) {
         final PrettyDialog dialog = new PrettyDialog(this);
         dialog
-                .setTitle("")
-                .setMessage("Do you want to Proceed?")
+                .setTitle(title)
+                .setTitleColor(R.color.pdlg_color_blue)
+                .setMessage(message)
                 .setIcon(R.drawable.pdlg_icon_info, R.color.pdlg_color_blue, null)
-                .addButton("OK", R.color.pdlg_color_white, R.color.pdlg_color_green, new PrettyDialogCallback() {
+                .addButton("Fechar", R.color.pdlg_color_white, R.color.pdlg_color_green, new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
                         dialog.dismiss();
-                        Toast.makeText(MainActivity.this, "OK selected", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addButton("Cancel", R.color.pdlg_color_white, R.color.pdlg_color_red, new PrettyDialogCallback() {
-                    @Override
-                    public void onClick() {
-                        dialog.dismiss();
-                        Toast.makeText(MainActivity.this, "Cancel selected", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "OK selected", Toast.LENGTH_SHORT).show();
                     }
                 });
 

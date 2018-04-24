@@ -58,7 +58,8 @@ public class PrincipalActivity extends AppCompatActivity {
                 "Notícias", "Próximos Jogos", "Classificação", "Jogos Realizados", "Artilharia"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                R.layout.list_view_padrao, android.R.id.text1, values);
+
         mDrawerListPrincipal.setAdapter(adapter);
         mDrawerListPrincipal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
