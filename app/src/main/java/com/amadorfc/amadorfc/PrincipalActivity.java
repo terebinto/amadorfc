@@ -49,8 +49,8 @@ public class PrincipalActivity extends AppCompatActivity {
             toolbarPrincipal.setNavigationIcon(R.drawable.ic_ab_drawer);
         }
 
-        mDrawerListPrincipal.setBackgroundColor(getResources().getColor(R.color.branco));
-        toolbarPrincipal.setBackgroundColor(getResources().getColor(R.color.verde900));
+        mDrawerListPrincipal.setBackgroundColor(getResources().getColor(R.color.black));
+        toolbarPrincipal.setBackgroundColor(getResources().getColor(R.color.laranjaAmador));
 
         drawerTogglePrincipal = new ActionBarDrawerToggle(this, mDrawerLayoutPrincipal, toolbarPrincipal, R.string.app_name, R.string.app_name);
         mDrawerLayoutPrincipal.setDrawerListener(drawerTogglePrincipal);

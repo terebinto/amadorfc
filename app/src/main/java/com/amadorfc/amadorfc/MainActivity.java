@@ -57,16 +57,16 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
 
         //Debug.waitForDebugger();
 
-        mDrawerList.setBackgroundColor(getResources().getColor(R.color.branco));
-        toolbar.setBackgroundColor(getResources().getColor(R.color.verde900));
+        mDrawerList.setBackgroundColor(getResources().getColor(R.color.black));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.laranjaAmador));
 
         drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(drawerToggle);
         String[] values = new String[]{
-                "Adicione seu campeonato", "Contato","Sobre o AMADOR FC"
+                "Adicione seu Campeonato", "Contato","Sobre o Amador FC"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                R.layout.list_view_padrao, android.R.id.text1, values);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -249,10 +249,10 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         final PrettyDialog dialog = new PrettyDialog(this);
         dialog
                 .setTitle(title)
-                .setTitleColor(R.color.pdlg_color_blue)
+                .setTitleColor(R.color.black)
                 .setMessage(message)
-                .setIcon(R.drawable.pdlg_icon_info, R.color.pdlg_color_blue, null)
-                .addButton("Fechar", R.color.pdlg_color_white, R.color.pdlg_color_green, new PrettyDialogCallback() {
+                .setIcon(R.drawable.pdlg_icon_info, R.color.laranjaAmador, null)
+                .addButton("Fechar", R.color.laranjaAmador, R.color.black, new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
                         dialog.dismiss();

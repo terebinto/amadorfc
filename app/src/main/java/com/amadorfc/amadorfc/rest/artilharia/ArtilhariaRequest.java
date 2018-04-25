@@ -13,7 +13,14 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class ArtilhariaRequest {
 
-    @JsonField
+    @JsonField(name = "campeonato")
     public int campeonato;
 
+    public int getCampeonato() {
+        return campeonato;
+    }
+
+    public void setCampeonato(int campeonato) {
+        this.campeonato = campeonato;
+    }
 }

@@ -13,7 +13,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 @JsonObject
 public class CartaoRequest {
 
-    @JsonField
+    @JsonField(name = "campeonato")
     public int campeonato;
 
     public int getCampeonato() {
