@@ -9,6 +9,7 @@ import android.os.Debug;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -39,6 +40,7 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
     ListView list;
     private List<Campeonato> campeonatos;
     AppCompatButton btn_titleMessage, btn_okCancel, btn_allCustom;
+    DrawerArrowDrawable arrow;
 
 
     @Override
@@ -47,6 +49,8 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
         setContentView(R.layout.content_main);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
         mDrawerList = (ListView) findViewById(R.id.navdrawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -54,13 +58,15 @@ public class MainActivity extends ActionBarActivity implements CampeonatoListene
             toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
         }
 
-
-        //Debug.waitForDebugger();
-
         mDrawerList.setBackgroundColor(getResources().getColor(R.color.black));
-        toolbar.setBackgroundColor(getResources().getColor(R.color.laranjaAmador));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.black));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.branco));
 
         drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
+
+        DrawerArrowDrawable arrow  = drawerToggle.getDrawerArrowDrawable();
+        arrow.setColor(getResources().getColor(R.color.laranjaAmador));
+
         mDrawerLayout.setDrawerListener(drawerToggle);
         String[] values = new String[]{
                 "Adicione seu Campeonato", "Contato","Sobre o Amador FC"

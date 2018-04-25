@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private ListView mDrawerListPrincipal;
     private Toolbar toolbarPrincipal;
     ListView list;
+    DrawerArrowDrawable arrow;
 
 
     private int idLiga;
@@ -50,13 +52,19 @@ public class PrincipalActivity extends AppCompatActivity {
         }
 
         mDrawerListPrincipal.setBackgroundColor(getResources().getColor(R.color.black));
-        toolbarPrincipal.setBackgroundColor(getResources().getColor(R.color.laranjaAmador));
+        toolbarPrincipal.setBackgroundColor(getResources().getColor(R.color.black));
+        toolbarPrincipal.setTitleTextColor(getResources().getColor(R.color.branco));
 
         drawerTogglePrincipal = new ActionBarDrawerToggle(this, mDrawerLayoutPrincipal, toolbarPrincipal, R.string.app_name, R.string.app_name);
         mDrawerLayoutPrincipal.setDrawerListener(drawerTogglePrincipal);
         String[] values = new String[]{
                 "Notícias", "Próximos Jogos", "Classificação", "Jogos Realizados", "Artilharia"
         };
+
+        DrawerArrowDrawable arrow  = drawerTogglePrincipal.getDrawerArrowDrawable();
+        arrow.setColor(getResources().getColor(R.color.laranjaAmador));
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.list_view_padrao, android.R.id.text1, values);
 
